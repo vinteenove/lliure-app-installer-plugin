@@ -25,7 +25,7 @@ class AppInstaller extends LibraryInstaller implements InstallerInterface
             throw new InvalidArgumentException('Invalid "extra" format: vimu>app-path; This MUST not include spacing or special characters.');
         }
 
-        return 'app/'.$package->getPrettyName();
+        return 'app/'.$extras['vimu']['app-path'];
     }
 
     /**
