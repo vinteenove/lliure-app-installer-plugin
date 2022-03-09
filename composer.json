@@ -15,6 +15,9 @@
     }
   },
   "extra": {
-    "class": "Vimu\\Composer\\AppInstallerPlugin\\AppInstallerPlugin"
+    "class": "Vimu\\Composer\\AppInstallerPlugin\\AppInstallerPlugin",
+    "vimu": {
+      "app-path": "meudiretorio"
+    }
   }
 }
