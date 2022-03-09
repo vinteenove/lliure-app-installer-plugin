@@ -18,4 +18,14 @@ class AppInstallerPlugin implements PluginInterface
         $installer = new AppInstaller($io, $composer);
         $composer->getInstallationManager()->addInstaller($installer);
     }
+
+    public function deactivate(Composer $composer, IOInterface $io)
+    {
+        // TODO: Implement deactivate() method.
+    }
+
+    public function uninstall(Composer $composer, IOInterface $io)
+    {
+        // TODO: Implement uninstall() method.
+    }
 }
