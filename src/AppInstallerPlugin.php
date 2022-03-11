@@ -1,6 +1,6 @@
 <?php
 
-namespace Vimu\Composer\AppInstallerPlugin;
+namespace Lliure\Composer\AppInstallerPlugin;
 
 use Composer\Composer;
 use Composer\IO\IOInterface;

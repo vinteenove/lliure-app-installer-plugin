@@ -1,6 +1,6 @@
 {
   "name": "vinteenove/vimu-app-installer-plugin",
-  "description": "Instala aplicativos no VIMU",
+  "description": "Instala aplicações no lliure",
   "type": "composer-plugin",
   "require": {
     "php": ">=7.4 || >=8.0",
@@ -11,13 +11,10 @@
   },
   "autoload": {
     "psr-4": {
-      "Vimu\\Composer\\AppInstallerPlugin\\": "src"
+      "Lliure\\Composer\\AppInstallerPlugin\\": "src"
     }
   },
   "extra": {
-    "class": "Vimu\\Composer\\AppInstallerPlugin\\AppInstallerPlugin",
-    "vimu": {
-      "app-path": "meudiretorio"
-    }
+    "class": "Lliure\\Composer\\AppInstallerPlugin\\AppInstallerPlugin"
   }
 }
