@@ -1,5 +1,5 @@
 {
-  "name": "vinteenove/vimu-app-installer-plugin",
+  "name": "vinteenove/lliure-app-installer-plugin",
   "description": "Instala aplicações no lliure",
   "type": "composer-plugin",
   "require": {
