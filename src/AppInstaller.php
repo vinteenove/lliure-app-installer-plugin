@@ -9,6 +9,9 @@ use InvalidArgumentException;
 
 class AppInstaller extends LibraryInstaller implements InstallerInterface
 {
+    private static $pathMap = ['lliure-app' => 'app',
+                               'lliure-opt' => 'opt',
+                               'lliure-api' => 'api'];
     /**
      * @param PackageInterface $package
      * @return string
@@ -17,15 +20,15 @@ class AppInstaller extends LibraryInstaller implements InstallerInterface
     {
         $extras = $package->getExtra();
 
-        if (empty($extras['vimu']['app-path'])) {
-            throw new InvalidArgumentException('Missing "extra": vimu > app-path');
+        if (empty($extras['lliure']['targetPath'])) {
+            throw new InvalidArgumentException('Missing "extra": lliure > targetPath');
         }
 
-        if (!preg_match('/^[A-Z][a-zA-Z0-9\-_]*$/', $extras['vimu']['app-path'])) {
-            throw new InvalidArgumentException('Invalid "extra" format: vimu>app-path; This MUST not include spacing or special characters.');
+        if (!preg_match('/^[A-Z][a-zA-Z0-9\-_]*$/', $extras['lliure']['targetPath'])) {
+            throw new InvalidArgumentException('Invalid "extra" format: lliure>targetPath; This MUST not include spacing or special characters.');
         }
 
-        return 'app/'.$extras['vimu']['app-path'];
+        return self::$pathMap[$package->getType()].'/'.$extras['lliure']['targetPath'];
     }
 
     /**
@@ -34,6 +37,6 @@ class AppInstaller extends LibraryInstaller implements InstallerInterface
      */
     public function supports($packageType)
     {
-        return "vimu-app" == $packageType;
+        return in_array($packageType, array_keys(self::$pathMap));
     }
 }
