@@ -9,9 +9,12 @@ use InvalidArgumentException;
 
 class AppInstaller extends LibraryInstaller implements InstallerInterface
 {
-    private static $pathMap = ['lliure-app' => 'app',
-                               'lliure-opt' => 'opt',
-                               'lliure-api' => 'api'];
+    private const PATH_MAP = [
+        'lliure-app' => 'app',
+        'lliure-opt' => 'opt',
+        'lliure-api' => 'api'
+    ];
+
     /**
      * @param PackageInterface $package
      * @return string
@@ -25,10 +28,10 @@ class AppInstaller extends LibraryInstaller implements InstallerInterface
         }
 
         if (!preg_match('/^[A-Z][a-zA-Z0-9\-_]*$/', $extras['lliure']['targetPath'])) {
-            throw new InvalidArgumentException('Invalid "extra" format: lliure>targetPath; This MUST not include spacing or special characters.');
+            throw new InvalidArgumentException('Invalid "extra" format: lliure > targetPath; This MUST not include spacing or special characters. Also MUST start with uppercase character (non-numeric)');
         }
 
-        return self::$pathMap[$package->getType()].'/'.$extras['lliure']['targetPath'];
+        return self::PATH_MAP[$package->getType()].'/'.$extras['lliure']['targetPath'];
     }
 
     /**
@@ -37,6 +40,6 @@ class AppInstaller extends LibraryInstaller implements InstallerInterface
      */
     public function supports($packageType)
     {
-        return in_array($packageType, array_keys(self::$pathMap));
+        return in_array($packageType, array_keys(self::PATH_MAP));
     }
 }
